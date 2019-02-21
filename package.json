@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "node ./bin/www",
+    "start": "if [[ $NODE_ENV == 'production' ]] node ./bin/www; else nodemon ./bin/www fi",
     "serve": "SET DEBUG=leads:* & npm start"
   },
   "dependencies": {
@@ -16,5 +16,8 @@
   },
   "standard": {
     "parser": "babel-eslint"
+  },
+  "devDependencies": {
+    "nodemon": "^1.18.10"
   }
 }
