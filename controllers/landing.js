@@ -8,8 +8,18 @@ module.exports = {
       email: req.body.lead_email
     })
       .then(response => {
-        console.log(response.dataValues)
-        res.redirect('/')
+        res.redirect('/leads')
+      })
+      .catch(error => {
+        if (error) {
+          console.log(error)
+        }
+      })
+  },
+  getLeads: (req, res) => {
+    models.Lead.findAll()
+      .then(leads => {
+        res.render('landing', { leads: leads })
       })
       .catch(error => {
         if (error) {

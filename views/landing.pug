@@ -7,3 +7,6 @@ block content
     label(for="lead_email") Email: 
     input#email(type="email", name="lead_email", placeholder="you@email.com")
     input(type="submit", value="Submit")
+  if leads
+    for lead in leads
+      p #{lead.email}
