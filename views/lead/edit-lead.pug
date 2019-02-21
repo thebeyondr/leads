@@ -1,0 +1,9 @@
+extends ../layout
+
+block content
+  h1 Edit Lead
+  p Edit your lead below
+  form(action=`/leads/${lead.id}/edit`, method="post")
+    label(for="lead_email") Email: 
+    input#email(type="email", name="lead_email", value=lead.email)
+    button(type="submit") Save

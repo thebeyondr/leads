@@ -1,6 +1,6 @@
 const models = require('../models')
 module.exports = {
-  getLanding: (req, res) => {
+  showLanding: (req, res) => {
     res.render('landing', { title: 'Landing' })
   },
   submitLead: (req, res) => {
@@ -16,7 +16,7 @@ module.exports = {
         }
       })
   },
-  getLeads: (req, res) => {
+  showLeads: (req, res) => {
     return models.Lead.findAll()
       .then(leads => {
         res.render('landing', { title: 'Leads', leads: leads })
@@ -27,7 +27,7 @@ module.exports = {
         }
       })
   },
-  getLead: (req, res) => {
+  showLead: (req, res) => {
     return models.Lead.findOne({
       where: {
         id: req.params.leadId
@@ -40,6 +40,39 @@ module.exports = {
         if (err) {
           console.log(err)
         }
+      })
+  },
+  showLeadEditForm: (req, res) => {
+    return models.Lead.findOne({
+      where: {
+        id: req.params.leadId
+      }
+    })
+      .then(lead => {
+        res.render('lead/edit-lead', { lead: lead })
+      })
+      .catch(err => {
+        if (err) {
+          console.log(err)
+        }
+      })
+  },
+  submitLeadEditForm: (req, res) => {
+    return models.Lead.update(
+      {
+        email: req.body.lead_email
+      },
+      {
+        where: {
+          id: req.params.leadId
+        }
+      }
+    )
+      .then(result => {
+        res.redirect(`/leads/${req.params.leadId}`)
+      })
+      .catch(error => {
+        console.log(error)
       })
   }
 }
