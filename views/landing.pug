@@ -9,4 +9,7 @@ block content
     input(type="submit", value="Submit")
   if leads
     for lead in leads
-      p #{lead.email}
+      p 
+        span #{lead.email}
+        | 
+        a(href="/lead/"+ lead.id) View Details

@@ -17,13 +17,28 @@ module.exports = {
       })
   },
   getLeads: (req, res) => {
-    models.Lead.findAll()
+    return models.Lead.findAll()
       .then(leads => {
-        res.render('landing', { leads: leads })
+        res.render('landing', { title: 'Leads', leads: leads })
       })
       .catch(error => {
         if (error) {
           console.log(error)
+        }
+      })
+  },
+  getLead: (req, res) => {
+    return models.Lead.findOne({
+      where: {
+        id: req.params.leadId
+      }
+    })
+      .then(lead => {
+        res.render('lead', { lead: lead })
+      })
+      .catch(err => {
+        if (err) {
+          console.log(err)
         }
       })
   }
