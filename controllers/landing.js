@@ -1,9 +1,20 @@
+const models = require('../models')
 module.exports = {
   getLanding: (req, res) => {
     res.render('landing', { title: 'Landing' })
   },
   submitLead: (req, res) => {
-    console.log('Lead email:', req.body.lead_email)
-    res.redirect('/')
+    models.Lead.create({
+      email: req.body.lead_email
+    })
+      .then(response => {
+        console.log(response.dataValues)
+        res.redirect('/')
+      })
+      .catch(error => {
+        if (error) {
+          console.log(error)
+        }
+      })
   }
 }
