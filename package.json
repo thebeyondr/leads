@@ -3,8 +3,8 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "if [[ $NODE_ENV == 'production' ]] node ./bin/www; else nodemon ./bin/www fi",
-    "serve": "SET DEBUG=leads:* & npm start"
+    "start": "SET DEBUG=leads:* & node ./bin/www",
+    "dev": "SET DEBUG=leads:* & nodemon ./bin/www"
   },
   "dependencies": {
     "cookie-parser": "~1.4.3",
@@ -17,7 +17,5 @@
   "standard": {
     "parser": "babel-eslint"
   },
-  "devDependencies": {
-    "nodemon": "^1.18.10"
-  }
+  "devDependencies": {}
 }
