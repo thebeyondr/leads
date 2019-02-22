@@ -9,7 +9,13 @@ block content
     input(type="submit", value="Submit")
   if leads
     for lead in leads
-      p 
+      p(id=lead.id)
         span #{lead.email}
         | 
         a(href="/leads/"+ lead.id) View Details
+        |
+        button(onclick=`deleteLead('${lead.id}')`) Delete (via Ajax)
+  script(src="https://code.jquery.com/jquery-3.3.1.min.js"
+			  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+			  crossorigin="anonymous")
+  script(src="/javascripts/leads.js")

@@ -74,5 +74,31 @@ module.exports = {
       .catch(error => {
         console.log(error)
       })
+  },
+  deleteLead: (req, res) => {
+    return models.Lead.destroy({
+      where: {
+        id: req.params.leadId
+      }
+    })
+      .then(result => {
+        res.redirect(`/leads`)
+      })
+      .catch(error => {
+        console.log(error)
+      })
+  },
+  deleteLeadJSON: (req, res) => {
+    return models.Lead.destroy({
+      where: {
+        id: req.params.leadId
+      }
+    })
+      .then(result => {
+        res.send({ msg: 'Success' })
+      })
+      .catch(error => {
+        console.log(error)
+      })
   }
 }
