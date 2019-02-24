@@ -4,6 +4,9 @@ html(lang='en')
   +head("Lead")
 
   body
+    include common/navbar.pug
+    +navbar()
+    .container-fluid
     h1 Lead 
     p 
       span #{lead.email}

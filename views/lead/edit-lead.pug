@@ -4,6 +4,9 @@ html(lang='en')
   +head("Edit Lead")
 
   body
+    include ../common/navbar.pug
+    +navbar()
+    .container-fluid
     h1 Edit Lead
     p Edit your lead below
     form(action=`/leads/${lead.id}/edit`, method="post")
