@@ -5,6 +5,8 @@ const userCtrl = require('../controllers/user')
 
 router.get('/login', userCtrl.showLogin)
 router.get('/signup', userCtrl.showSignUp)
+router.post('/login', userCtrl.submitLogin)
+router.post('/signup', userCtrl.submitSignUp)
 
 router.get('/', landingCtrl.showLanding)
 router.post('/', landingCtrl.submitLead)

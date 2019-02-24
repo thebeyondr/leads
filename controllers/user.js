@@ -4,5 +4,11 @@ module.exports = {
   },
   showSignUp: (req, res) => {
     res.render('user/signup', { formData: {}, errors: {} })
+  },
+  submitLogin: (req, res) => {
+    res.redirect('/')
+  },
+  submitSignUp: (req, res) => {
+    res.redirect('/')
   }
 }
