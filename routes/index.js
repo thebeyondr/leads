@@ -1,6 +1,10 @@
 var express = require('express')
 var router = express.Router()
 const landingCtrl = require('../controllers/landing')
+const userCtrl = require('../controllers/user')
+
+router.get('/login', userCtrl.showLogin)
+router.get('/signup', userCtrl.showSignUp)
 
 router.get('/', landingCtrl.showLanding)
 router.post('/', landingCtrl.submitLead)

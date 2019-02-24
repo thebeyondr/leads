@@ -1,0 +1,26 @@
+doctype html
+html(lang='en')
+  include ../common/head.pug 
+  +head("Sign Up | Leadr")
+  body
+    header
+      include ../common/navbar.pug
+      +navbar()
+      .container.pt-3
+        .row
+          .col-sm-12.offset-md-2.col-md-8
+            .jumbotron
+              h2.text-center Sign Up
+              .row
+                .col-sm-12.col-md-12
+                  form(action="/signup", method="post")
+                    .form-group
+                      label(for="lead_email").small.mb-1.mt-3 Email
+                      input#lead_email(type="email", name="lead_email", placeholder="lead@email.com" required="true").form-control.mr-2
+                      label(for="password").small.mb-1.mt-3 Password
+                      input#password(type="password", name="password", placeholder="Your new password" required="true").form-control.mr-2
+                      button(type="submit").btn.btn-primary.mt-3 Sign Up
+                      p.mt-2.mb-0
+                        | Already have an account? #[a(href="/login") Log in Here]
+    include ../common/footer.pug
+    +footer()     
