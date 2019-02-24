@@ -1,21 +1,25 @@
-extends layout
-
-block content
-  h1= title
-  p Welcome to #{title}
-  form(action="/", method="post")
-    label(for="lead_email") Email: 
-    input#email(type="email", name="lead_email", placeholder="you@email.com")
-    input(type="submit", value="Submit")
-  if leads
-    for lead in leads
-      p(id=lead.id)
-        span #{lead.email}
-        | 
-        a(href="/leads/"+ lead.id) View Details
-        |
-        button(onclick=`deleteLead('${lead.id}')`) Delete (via Ajax)
-  script(src="https://code.jquery.com/jquery-3.3.1.min.js"
-			  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
-			  crossorigin="anonymous")
-  script(src="/javascripts/leads.js")
+doctype html
+html(lang='en')
+  include common/head.pug 
+  +head("Starter MVP")
+  body
+    h1= title
+    p Welcome to #{title}
+    form(action="/", method="post")
+      label(for="lead_email") Email: 
+      input#email(type="email", name="lead_email", placeholder="you@email.com")
+      input(type="submit", value="Submit")
+    if leads
+      for lead in leads
+        p(id=lead.id)
+          span #{lead.email}
+          | 
+          a(href="/leads/"+ lead.id) View Details
+          |
+          button(onclick=`deleteLead('${lead.id}')`) Delete (via Ajax)
+    script(src="https://code.jquery.com/jquery-3.3.1.min.js"
+          integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+          crossorigin="anonymous")
+    include common/footer.pug
+    +footer()
+    script(src="/javascripts/leads.js")

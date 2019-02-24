@@ -1,9 +1,14 @@
-extends ../layout
+doctype html
+html(lang='en')
+  include ../common/head.pug 
+  +head("Edit Lead")
 
-block content
-  h1 Edit Lead
-  p Edit your lead below
-  form(action=`/leads/${lead.id}/edit`, method="post")
-    label(for="lead_email") Email: 
-    input#email(type="email", name="lead_email", value=lead.email)
-    button(type="submit") Save
+  body
+    h1 Edit Lead
+    p Edit your lead below
+    form(action=`/leads/${lead.id}/edit`, method="post")
+      label(for="lead_email") Email: 
+      input#email(type="email", name="lead_email", value=lead.email)
+      button(type="submit") Save
+    include ../common/footer.pug
+    +footer()

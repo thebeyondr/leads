@@ -1,10 +1,15 @@
-extend layout
+doctype html
+html(lang='en')
+  include common/head.pug 
+  +head("Lead")
 
-block content
-  h1 Lead 
-  p 
-    span #{lead.email}
-    |
-    a(href=`/leads/${lead.id}/edit`)  Edit Lead
-    form(action=`/leads/${lead.id}/delete`, method="post")
-      button(type="submit") Delete
+  body
+    h1 Lead 
+    p 
+      span #{lead.email}
+      |
+      a(href=`/leads/${lead.id}/edit`)  Edit Lead
+      form(action=`/leads/${lead.id}/delete`, method="post")
+        button(type="submit") Delete
+    include common/footer.pug
+    +footer()
