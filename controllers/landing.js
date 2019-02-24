@@ -19,7 +19,7 @@ module.exports = {
   showLeads: (req, res) => {
     return models.Lead.findAll()
       .then(leads => {
-        res.render('landing', { title: 'Leads', leads: leads })
+        res.render('lead/leads', { leads: leads })
       })
       .catch(error => {
         if (error) {
@@ -34,7 +34,7 @@ module.exports = {
       }
     })
       .then(lead => {
-        res.render('lead', { lead: lead })
+        res.render('lead/lead', { lead: lead })
       })
       .catch(err => {
         if (err) {
