@@ -51,6 +51,7 @@ module.exports = passport => {
           })
           .catch(err => {
             if (err) {
+              req.flash('message', err)
               done(err, false)
             }
           })

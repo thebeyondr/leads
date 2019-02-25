@@ -14,9 +14,11 @@ html(lang='en')
               .row
                 .col-sm-12.col-md-12
                   form(action="/login", method="post")
+                    if errors
+                      p=errors.message
                     .form-group
                       label(for="lead_email").small.mb-1.mt-3 Email
-                      input#lead_email(type="email", name="lead_email", placeholder="lead@email.com" required="true").form-control.mr-2
+                      input#email(type="email", name="email", placeholder="lead@email.com" required="true").form-control.mr-2
                       label(for="password").small.mb-1.mt-3 Password
                       input#password(type="password", name="password", placeholder="**********" required="true").form-control.mr-2
                       button(type="submit").btn.btn-primary.mt-3 Login

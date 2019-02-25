@@ -9,16 +9,16 @@ const generateHash = password => {
 }
 module.exports = {
   showLogin: (req, res, next) => {
-    res.render('user/login', { formData: {}, errors: {} })
+    res.render('user/login', {
+      formData: {},
+      errors: { message: req.flash('message') }
+    })
   },
   showSignUp: (req, res, next) => {
     res.render('user/signup', {
       formData: {},
       errors: { message: req.flash('message') }
     })
-  },
-  submitLogin: (req, res, next) => {
-    res.redirect('/')
   },
   submitSignUp: (req, res, next) => {
     const newUser = models.User.build({
@@ -33,7 +33,7 @@ module.exports = {
       })(req, res, next)
     })
   },
-  sumbitLogin: (req, res, next) => {
+  submitLogin: (req, res, next) => {
     passport.authenticate('local', {
       successRedirect: '/',
       failureRedirect: '/login',
