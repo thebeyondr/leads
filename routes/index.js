@@ -7,6 +7,8 @@ router.get('/login', userCtrl.showLogin)
 router.get('/signup', userCtrl.showSignUp)
 router.post('/login', userCtrl.submitLogin)
 router.post('/signup', userCtrl.submitSignUp)
+router.get('/logout', userCtrl.logout)
+router.post('/logout', userCtrl.logout)
 
 router.get('/', landingCtrl.showLanding)
 router.post('/', landingCtrl.submitLead)

@@ -1,7 +1,7 @@
 const models = require('../models')
 module.exports = {
   showLanding: (req, res) => {
-    res.render('landing')
+    res.render('landing', { user: req.user })
   },
   submitLead: (req, res) => {
     models.Lead.create({
