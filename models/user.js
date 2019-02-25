@@ -13,6 +13,7 @@ module.exports = (sequelize, DataTypes) => {
       password: { type: DataTypes.STRING, allowNull: true },
       lastname: { type: DataTypes.STRING, allowNull: true },
       firstname: { type: DataTypes.STRING, allowNull: true },
+      isAdmin: { type: DataTypes.BOOLEAN, allowNull: true },
       email: { type: DataTypes.STRING, allowNull: false, unique: true }
     },
     {}

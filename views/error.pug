@@ -1,4 +1,12 @@
-body
-  h1= message
-  h2= error.status
-  pre #{error.stack}
+<!DOCTYPE html>
+html(lang="en")
+  include common/head
+  +head("Error")
+  body
+    header
+      .container
+        .row
+          .cl-md-12
+            h1= error.message
+            h2.text-danger= error.status
+            pre.text-danger #{error.stack}
